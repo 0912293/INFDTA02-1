@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using static System.Math;
+using static DataScience.Hashmap;
 
 namespace DataScience
 {
@@ -16,13 +17,18 @@ namespace DataScience
             return (1 / (1 + devisor));
         }
 
-        public static double Generalised(int r, List<Tuple<int,int>> ratings)
-        //Similarity(Pow(Pow(Abs(p - q), r), (1/r));
+        public static double Generalised(Hashmap ratings, int r, int user_one, int user_two, int item)
         {
+            Dictionary<int, double> user_one_ratings = ratings.GetEntry(user_one).GetInnerDict();
+            Dictionary<int, double> user_two_ratings = ratings.GetEntry(user_two).GetInnerDict();
+
             double sums = 0;
-            foreach(var item in ratings)
+            foreach (KeyValuePair<int, double> kvpair in user_one_ratings)
             {
-                sums += Pow(Abs(item.Item1 - item.Item2), r);
+                if (user_two_ratings.ContainsKey(kvpair.Key))
+                {
+                    sums += Pow(Abs(user_one_ratings[kvpair.Key] - user_two_ratings[kvpair.Key]), r);
+                }
             }
 
             double answer = Pow(sums, (1 / r));
@@ -37,9 +43,27 @@ namespace DataScience
             {
                 if (user_ratings.GetInner().Where(x => x.Key == item.Key).Count() != 0)
                 {
-                    shared_ratings.Add(item);
+                    //shared_ratings.Add(item);
                 }
             }
         }
+
+        //public static double Generalised(Hashmap ratings, int r, int user_one, int user_two, int item)
+        //{
+        //    Dictionary<int, double> user_one_ratings = ratings.GetEntry(user_one).GetInnerDict();
+        //    Dictionary<int, double> user_two_ratings = ratings.GetEntry(user_two).GetInnerDict();
+
+        //    double sums = 0;
+        //    foreach (KeyValuePair<int, double> kvpair in user_one_ratings)
+        //    {
+        //        if (user_two_ratings.ContainsKey(kvpair.Key))
+        //        {
+        //            sums += Pow(Abs(user_one_ratings[kvpair.Key] - user_two_ratings[kvpair.Key]), r);
+        //        }
+        //    }
+
+        //    double answer = Pow(sums, (1 / r));
+        //    return Similarity(answer);
+        //}
     }
 }

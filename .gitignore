@@ -1,0 +1,11 @@
+
+*.cache
+src/.vs/DataScience/v15/.suo
+src/.vs/DataScience/v15/Server/sqlite3/db.lock
+*.ide
+src/.vs/DataScience/v15/Server/sqlite3/storage.ide-shm
+src/.vs/DataScience/v15/Server/sqlite3/storage.ide-wal
+*.cache
+src/DataScience/obj/Debug/DataScience.csproj.CoreCompileInputs.cache
+src/DataScience/obj/Debug/DataScience.csproj.CoreCompileInputs.cache
+*.cache
