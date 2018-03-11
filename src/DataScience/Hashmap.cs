@@ -54,18 +54,24 @@ namespace DataScience
             return inner_dict;
         }
 
-        public void Parsedata(string datapath)
+        public void Parsedata(string datapath, Boolean containsHeader)
         {
+            
+
             // Add culture data to force Decimal.Parse() to use dot separators.
             CultureInfo culture = new CultureInfo("en-US", true);
             culture.NumberFormat.NumberDecimalSeparator = ".";
             Thread.CurrentThread.CurrentCulture = culture;
-
+            
             foreach (string entry in File.ReadLines(datapath))
             {
+                if (containsHeader) {
+                    containsHeader = false;
+                    continue;
+                }                  
                 string[] subEntry = entry.Split(',');
-                int user_id = Int16.Parse(subEntry[0]);
-                int article = Int16.Parse(subEntry[1]);
+                int user_id = Int32.Parse(subEntry[0]);
+                int article = Int32.Parse(subEntry[1]);
                 double rating = Double.Parse(subEntry[2]);
 
                 if (inner_dict.ContainsKey(user_id))

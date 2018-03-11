@@ -5,3 +5,10 @@ D:\Projects\Jaar 3\C#\DataScience\DataScience\DataScience\obj\Debug\DataScience.
 D:\Projects\Jaar 3\C#\DataScience\DataScience\DataScience\obj\Debug\DataScience.exe
 D:\Projects\Jaar 3\C#\DataScience\DataScience\DataScience\obj\Debug\DataScience.pdb
 D:\Projects\Jaar 3\C#\DataScience\DataScience\DataScience\obj\Debug\DataScience.csprojResolveAssemblyReference.cache
+I:\Datascience\src\DataScience\bin\Debug\DataScience.exe.config
+I:\Datascience\src\DataScience\bin\Debug\DataScience.exe
+I:\Datascience\src\DataScience\bin\Debug\DataScience.pdb
+I:\Datascience\src\DataScience\obj\Debug\DataScience.csprojResolveAssemblyReference.cache
+I:\Datascience\src\DataScience\obj\Debug\DataScience.csproj.CoreCompileInputs.cache
+I:\Datascience\src\DataScience\obj\Debug\DataScience.exe
+I:\Datascience\src\DataScience\obj\Debug\DataScience.pdb
