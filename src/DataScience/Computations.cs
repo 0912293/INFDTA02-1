@@ -177,8 +177,14 @@ namespace DataScience
             var nn = NearestNeighbour(ratings, user, treshhold, K);
             var rec = new Dictionary<int, double>();
 
-            foreach (var kvpair in ratings.GetInner()) if (kvpair.Key == user) foreach (var innerpair in kvpair.Value.GetInnerDict()) userMovieId.Add(innerpair.Key); 
-            foreach (var kvpair in ratings.GetInner()) foreach (var innerpair in kvpair.Value.GetInnerDict()) if(!userMovieId.Contains(innerpair.Key))nnMovieId.Add(innerpair.Key);
+            foreach (var kvpair in ratings.GetInner())
+                if (kvpair.Key == user)
+                    foreach (var innerpair in kvpair.Value.GetInnerDict())
+                        userMovieId.Add(innerpair.Key); 
+
+            foreach (var kvpair in ratings.GetInner())
+                foreach (var innerpair in kvpair.Value.GetInnerDict())
+                    if (!userMovieId.Contains(innerpair.Key))nnMovieId.Add(innerpair.Key);
 
             var moviesIds = nnMovieId.GroupBy(x => x).Where(group => group.Count() > same-1).Select(group => group.Key);
 

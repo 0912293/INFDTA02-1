@@ -23,16 +23,17 @@ namespace DataScience
             hashmap.Parsedata(datafile2,true);
                                         
 //            Console.WriteLine(Generalised(hashmap, 2, 1, 2, 31)); //1 = manhat 2 = eucli
-//            Console.WriteLine(Pearson(hashmap,1,2));
 
-//            var nn = NearestNeighbour(hashmap, 1, 0, 1263);
+            //Console.WriteLine(Pearson(hashmap,1,2));
+
+//            var nn = NearestNeighbour(hashmap, 4, 0, 3);
 //            foreach (var neighbour in nn)
 //            {
 //                  Console.WriteLine(neighbour.Key+":key Val:"+neighbour.Value);
 //            }
-//                        Console.WriteLine(Predicted(nn, hashmap, 10))
-;
-            var recs = TopNRec(hashmap, 1, 10, 0.35, 25, 3);
+//                        Console.WriteLine(Predicted(nn, hashmap, 10));
+
+            var recs = TopNRec(hashmap,8,100,0.35,100,5);                                     //check if user rated more than 1 item
             foreach (var i in recs)
             {
                 Console.WriteLine(i.Key+":key value: "+i.Value);
